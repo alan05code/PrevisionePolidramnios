@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PolidramniosMobile.MainPage"
+             BackgroundColor="#eef4f5"
+             Title="Previsione Polidramnios">
+
+    <ContentPage.Resources>
+        <!-- Colori coerenti su sfondo chiaro (no dipendenza dal tema di sistema). -->
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="#2a3b3d" />
+            <Setter Property="PlaceholderColor" Value="#8a9a9c" />
+            <Setter Property="BackgroundColor" Value="White" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#2a3b3d" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="14" Padding="20">
+
+            <Label Text="Previsione Polidramnios" FontSize="22" FontAttributes="Bold" TextColor="#155b64" />
+            <Label Text="Inserisci i dati clinici della paziente" FontSize="13" TextColor="#5a6b6d" />
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Età (anni)" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="EtaEntry" Placeholder="14–55" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Gravidanze pregresse" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="GravidanzeEntry" Placeholder="0–20" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Tagli cesarei pregressi" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="CesareiEntry" Placeholder="0–12" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Pressione diastolica (mmHg)" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="PressioneEntry" Placeholder="40–130" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Insulina sierica 2h (µU/ml)" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="InsulinaEntry" Placeholder="0–400" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="#d3e6e8" />
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Altezza (cm)" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="AltezzaEntry" Placeholder="120–220" Keyboard="Numeric" TextChanged="OnDatiCambiati" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Peso (kg)" FontAttributes="Bold" FontSize="13" />
+                <Entry x:Name="PesoEntry" Placeholder="30–250" Keyboard="Numeric" TextChanged="OnDatiCambiati" />
+            </VerticalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="BMI calcolato:" FontAttributes="Bold" VerticalOptions="Center" />
+                <Label x:Name="BmiLabel" Text="—" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <BoxView HeightRequest="1" Color="#d3e6e8" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch x:Name="DiabeteGestSwitch" OnColor="#1c7a86" />
+                <Label Text="Diabete gestazionale" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10">
+                <Switch x:Name="DiabetePregSwitch" OnColor="#1c7a86" />
+                <Label Text="Diabete pregravidico" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button x:Name="CalcolaBtn" Text="Calcola previsione" Clicked="OnCalcolaClicked"
+                    BackgroundColor="#1c7a86" TextColor="White" FontAttributes="Bold" Margin="0,8,0,0" />
+
+            <Label x:Name="ErroreLabel" IsVisible="False" TextColor="#b02a37" FontSize="13" />
+
+            <Border x:Name="RisultatoFrame" IsVisible="False" BackgroundColor="#f6fbfb"
+                    Stroke="#d3e6e8" StrokeShape="RoundRectangle 12" Padding="18">
+                <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                    <Label Text="Esito" TextColor="#5a6b6d" HorizontalOptions="Center" />
+                    <Label x:Name="EsitoLabel" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <Label x:Name="ProbLabel" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

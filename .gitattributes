@@ -1,0 +1,50 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python
+*.py text diff=python
+*.pyw text diff=python
+*.ipynb text diff=python
+
+# Web
+*.html text diff=html
+*.css text diff=css
+*.js text diff=javascript
+*.json text
+
+# Config
+*.yml text
+*.yaml text
+*.toml text
+*.ini text
+*.cfg text
+*.conf text
+
+# Markdown
+*.md text diff=markdown
+
+# C# / .NET MAUI
+*.cs text diff=csharp
+*.csproj text
+*.sln text
+*.xaml text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# Modello ML (binary)
+*.joblib binary
+
+# Dataset CSV
+*.csv text
+
+# Requirements
+requirements.txt text

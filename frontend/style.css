@@ -1,0 +1,52 @@
+:root {
+  --teal: #1c7a86;
+  --teal-dark: #155b64;
+  --bg: #eef4f5;
+}
+
+body {
+  background: var(--bg);
+  color: #2a3b3d;
+}
+
+.app-card {
+  max-width: 760px;
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  padding: 1.1rem 1.25rem;
+}
+.app-header small { opacity: .85; }
+
+.form-label { font-weight: 600; font-size: .9rem; }
+.form-text { font-size: .78rem; }
+
+.btn-primary {
+  background: var(--teal);
+  border-color: var(--teal);
+  font-weight: 600;
+  padding: .6rem;
+}
+.btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+
+.form-check-input:checked {
+  background-color: var(--teal);
+  border-color: var(--teal);
+}
+
+.result-box {
+  border-radius: 12px;
+  background: #f6fbfb;
+  border: 1px solid #d3e6e8;
+}
+
+/* Colori esito: applicati via JS aggiungendo .esito-positivo / .esito-negativo */
+.esito-positivo { color: #b02a37; }
+.esito-negativo { color: #1c7a86; }
+.barra-positivo { background-color: #dc3545; }
+.barra-negativo { background-color: #1c7a86; }
